@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using gamejamtarts.Models;
 
 namespace gamejamtarts.Controllers
@@ -7,7 +8,7 @@ namespace gamejamtarts.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(Game.SampleGames().Take(3).ToList());
         }
 
         public ActionResult About()
