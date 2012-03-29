@@ -203,6 +203,9 @@
   <ItemGroup>
     <Content Include="Views\Games\Details.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Map.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
