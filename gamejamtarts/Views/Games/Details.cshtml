@@ -1,0 +1,52 @@
+﻿@model gamejamtarts.Models.Game
+
+@{ ViewBag.Title = Model.Title; }
+
+<h2>@Model.Title</h2>
+
+<style>
+    .info { margin-bottom: 15px;}
+    .images img {float: left;margin: 15px; max-height: 300px; max-width: 280px; }
+    .download { font-size: 30px;width: 180px;padding: 15px 0 15px 0; }
+    .attribution { font-style: italic; }
+</style>
+<div class="row">
+    <div class="span8">
+        <p>@Model.Description</p>
+        <p class="attribution">@Model.CopyrightAndAttribution</p>
+        <div class="images">
+            @foreach (var image in Model.Images)
+            { 
+                <a href="@image" target="_blank"><img src="@image"/></a>
+            }
+        </div>
+        <br clear="all"/>
+    </div>
+    <div class="span4">
+        <div class="info">
+            <span class="label">Word Theme:</span> @Model.WordTheme
+        </div>
+        <div class="info">
+            <span class="label">Art Theme:</span> @Model.ArtTheme
+        </div>
+        <div  class="info">
+            <span class="label">Team:</span> 
+            <br /><br />
+            <ul>
+                @foreach (var member in Model.Team) { <li>@member</li> }
+            </ul>
+        </div>
+
+        <div  class="info">
+            <span class="label">Contents:</span> 
+            <br /><br />
+            <ul>
+                @foreach (var line in Model.Contents) { <li>@line</li> }
+            </ul>
+        </div>
+        <br />
+        <div class="btn btn-success download">
+            Download
+        </div>
+    </div>
+</div>

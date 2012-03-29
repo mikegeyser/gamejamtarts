@@ -1,0 +1,40 @@
+﻿@model IEnumerable<gamejamtarts.Models.Question>
+           
+@{ ViewBag.Title = "About Us"; }
+
+<style type="text/css">
+    .question { font-weight: bold; }
+</style>
+<div class="row">
+    <div class="span6">
+        <h2>When?</h2>
+        <ul>
+            <li>Sat, 14 April 2012 - 15:00 to 20:00</li>
+            <li>Sun, 15 April 2012 - 09:00 to 15:00</li>
+        </ul>
+        <br />
+        <h2>Where?</h2>
+        <p>
+            Ground Floor, Digital Convent <br />
+            Jorrison Street and Station Street <br />
+            Braamfontein, <br />
+            Gauteng. <br />
+        </p>
+        <br />
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.za/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Wits+University,+Johannesburg,+Gauteng&amp;aq=1&amp;oq=wits+universi&amp;sll=-26.193398,28.033682&amp;sspn=0.009617,0.016512&amp;ie=UTF8&amp;hq=Wits+University,+Johannesburg,+Gauteng&amp;t=m&amp;ll=-26.18908,28.02904&amp;spn=0.020025,0.032015&amp;output=embed"></iframe><br /><small>View <a href="http://maps.google.co.za/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Wits+University,+Johannesburg,+Gauteng&amp;aq=1&amp;oq=wits+universi&amp;sll=-26.193398,28.033682&amp;sspn=0.009617,0.016512&amp;ie=UTF8&amp;hq=Wits+University,+Johannesburg,+Gauteng&amp;t=m&amp;ll=-26.18908,28.02904&amp;spn=0.020025,0.032015" style="color:#0000FF;text-align:left">Wits University</a> in a larger map</small>
+    </div>
+    <div class="span6">
+        <h2>Questions?</h2>
+        <ul>
+            @foreach (var question in Model)
+            {
+                <li>
+                    <div class="question">@question.Text</div>
+                    <div>@question.Answer</div><br />
+                </li>
+            } 
+            
+        </ul>
+    </div>
+</div>
+
