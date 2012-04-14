@@ -210,9 +210,6 @@
   <ItemGroup>
     <Content Include="Views\Home\ThemeBlurb.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Code\Disqus.cshtml" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
