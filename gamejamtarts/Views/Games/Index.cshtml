@@ -1,16 +1,36 @@
 ﻿@model IEnumerable<gamejamtarts.Models.Game>
 
-@{ ViewBag.Title = "Games"; }
+@{ 
+    ViewBag.Title = "Games";
+
+    }
 
 <h2>The Results!</h2>
 <br />
 
 @foreach (var game in Model)
  {
+     var gameUrl = Url.Action("Details", new { code = game.Code });
+     var disqusUrl = gameUrl + "#disqus_thread";   
+     
      <div class="game-short-description">
         <div class="image"><img src="@game.TitleImage" alt="@game.Title" /></div>         
-        <div class="title">@Html.ActionLink(game.Title, "Details", new {code = game.Code})</div>
+        <div class="title"><a href="@gameUrl">@game.Title</a></div>
         <p>@game.ShortDescription</p>        
+         <a href="@disqusUrl" data-disqus-identifier="@game.Code">Comments</a>
      </div>
     <br clear="all"/>
  }
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'gamejamtarts';
+    var disqus_developer = 1;
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
