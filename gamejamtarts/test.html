@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS Example: Building a game</title>
+
+<link href="../styles/styles.css" rel="stylesheet" type="text/css" />
+
+<!-- Import EaselJS Framework -->
+<script src="../../src/easeljs/utils/UID.js"></script>
+<script src="../../src/easeljs/display/SpriteSheet.js"></script>
+<script src="../../src/easeljs/display/Shadow.js"></script>
+<script src="../../src/easeljs/geom/Matrix2D.js"></script>
+<script src="../../src/easeljs/events/MouseEvent.js"></script>
+<script src="../../src/easeljs/display/DisplayObject.js"></script>
+<script src="../../src/easeljs/display/Container.js"></script>
+<script src="../../src/easeljs/display/Stage.js"></script>
+<script src="../../src/easeljs/display/Graphics.js"></script>
+<script src="../../src/easeljs/display/Shape.js"></script>
+<script src="../../src/easeljs/display/Text.js"></script>
+<script src="../../src/easeljs/utils/Ticker.js"></script>
+<!-- End EaselJS Imports -->
+
+<!-- Game script below -->
+<script src="SpaceRock.js"></script>
+<script src="Ship.js"></script>
+<script src="Player.js"></script>
+<script>
+
+var KEYCODE_SPACE = 32;		//usefll keycode
+var KEYCODE_UP = 38;		//usefull keycode
+var KEYCODE_LEFT = 37;		//usefull keycode
+var KEYCODE_RIGHT = 39;		//usefull keycode
+var KEYCODE_W = 87;			//usefull keycode
+var KEYCODE_A = 65;			//usefull keycode
+var KEYCODE_D = 68;			//usefull keycode
+
+var shootHeld;			//is the user holding a shoot command
+var lfHeld;				//is the user holding a turn left command
+var rtHeld;				//is the user holding a turn right command
+var fwdHeld;			//is the user holding a forward command
+
+var canvas;			//Main canvas
+var stage;			//Main display stage
+
+var player;
+var mob;			
+var alive;			
+
+//register key functions
+document.onkeydown = handleKeyDown;
+document.onkeyup = handleKeyUp;
+
+function init() {
+	//associate the canvas with the stage
+	canvas = document.getElementById("testCanvas");
+	stage = new Stage(canvas);
+	
+	restart();
+}
+
+//reset all game logic
+function restart() {
+	//hide anything on stage and show the score
+	stage.removeAllChildren();
+	
+	//create the player
+	alive = true;
+	player = new Player();
+	player.x = canvas.width / 2;
+	player.y = canvas.height / 2;
+	
+	//reset key presses
+	shootHeld =	false;
+	lfHeld =	false;
+	rtHeld =	false;
+	fwdHeld =	false;
+	dnHeld =	false;
+	
+	//ensure stage is blank and add the ship
+	stage.clear();
+	stage.addChild(player);
+	
+	//start game timer
+	Ticker.addListener(window);
+}
+
+function tick() {
+	//handle turning
+	if(alive && lfHeld){
+		player.vX = -2
+	} else if(alive && rtHeld) {
+		player.vX = 2
+	}
+		
+	//call sub ticks
+	player.tick();
+	stage.update();
+}
+
+function outOfBounds(o, bounds) {
+	//is it visibly off screen
+	return o.x < bounds*-2 || o.y < bounds*-2 || o.x > canvas.width+bounds*2 || o.y > canvas.height+bounds*2;
+}
+
+function placeInBounds(o, bounds) {
+	//if its visual bounds are entirely off screen place it off screen on the other side
+	if(o.x > canvas.width+bounds*2) {
+		o.x = bounds*-2;
+	} else if(o.x < bounds*-2) {
+		o.x = canvas.width+bounds*2;
+	}
+	
+	//if its visual bounds are entirely off screen place it off screen on the other side
+	if(o.y > canvas.height+bounds*2) {
+		o.y = bounds*-2;
+	} else if(o.y < bounds*-2) {
+		o.y = canvas.height+bounds*2;
+	}
+}
+
+function fireBullet() {
+	//create the bullet
+	var o = bulletStream[getBullet()];
+	o.x = ship.x;
+	o.y = ship.y;
+	o.rotation = ship.rotation;
+	o.entropy = BULLET_ENTROPY;
+	o.active = true;
+	
+	//draw the bullet
+	o.graphics.beginStroke("#FFFFFF").moveTo(-1, 0).lineTo(1, 0);
+}
+	
+function getSpaceRock(size) {
+	var i = 0;
+	var len = rockBelt.length;
+	
+	//pooling approach
+	while(i <= len){
+		if(!rockBelt[i]) {
+			rockBelt[i] = new SpaceRock(size);
+			break;
+		} else if(!rockBelt[i].active) {
+			rockBelt[i].activate(size);
+			break;
+		} else {
+			i++;
+		}
+	}
+	
+	if(len == 0) {
+		rockBelt[0] = new SpaceRock(size);
+	}
+	
+	stage.addChild(rockBelt[i]);
+	return i;
+}
+
+function getBullet() {
+	var i = 0;
+	var len = bulletStream.length;
+	
+	//pooling approach
+	while(i <= len){
+		if(!bulletStream[i]) {
+			bulletStream[i] = new Shape();
+			break;
+		} else if(!bulletStream[i].active) {
+			bulletStream[i].active = true;
+			break;
+		} else {
+			i++;
+		}
+	}
+	
+	if(len == 0) {
+		bulletStream[0] = new Shape();
+	}
+	
+	stage.addChild(bulletStream[i]);
+	return i;
+}
+
+//allow for WASD and arrow control scheme
+function handleKeyDown(e) {
+	//cross browser issues exist
+	if(!e){ var e = window.event; }
+	switch(e.keyCode) {
+		case KEYCODE_SPACE:	shootHeld = true; break;
+		case KEYCODE_A:
+		case KEYCODE_LEFT:	lfHeld = true; break;
+		case KEYCODE_D:
+		case KEYCODE_RIGHT: rtHeld = true; break;
+		case KEYCODE_W:
+		case KEYCODE_UP:	fwdHeld = true; break;
+	}
+}
+
+function handleKeyUp(e) {
+	//cross browser issues exist
+	if(!e){ var e = window.event; }
+	switch(e.keyCode) {
+		case KEYCODE_SPACE:	shootHeld = false; break;
+		case KEYCODE_A:
+		case KEYCODE_LEFT:	lfHeld = false; break;
+		case KEYCODE_D:
+		case KEYCODE_RIGHT: rtHeld = false; break;
+		case KEYCODE_W:
+		case KEYCODE_UP:	fwdHeld = false; break;
+	}
+}
+
+function addScore(value) {
+	//trust the field will have a number and add the score
+	scoreField.text = (Number(scoreField.text) + Number(value)).toString();
+}
+
+</script>
+</head>
+	
+<body onload="init();">
+	<div class="description">
+	Demo showing a simple game using vector <strong>Shapes</strong>, <strong>Text</strong> and a <strong>Container</strong>. It also demonstrates extending <strong>Shape</Strong> to create custom display objects. Arrow keys to steer, space to shoot.<br/>
+	</div>
+	<div class="canvasHolder" style="background-color:#000000; height:600px; position:relative; float:left;">
+		<canvas style="position:absolute; float:left" id="testCanvas" width="980px" height="600px"></canvas>
+	</div>
+</body>
+</html>

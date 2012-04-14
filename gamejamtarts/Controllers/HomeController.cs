@@ -8,12 +8,17 @@ namespace gamejamtarts.Controllers
     {
         public ActionResult Index()
         {
-            return View(Game.SampleGames().Take(3).ToList());
+            return View(Game.Games().Take(2).ToList());
         }
 
         public ActionResult About()
         {
             return View(Question.DefaultQuestions());
+        }
+
+        public ActionResult Theme()
+        {
+            return View();
         }
     }
 }

@@ -1,21 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace gamejamtarts.Models
 {
+    [Serializable]
     public class Game
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public string WordTheme { get; set; }
         public string ArtTheme { get; set; }
-        public IEnumerable<string> Team { get; set; }
+
+        [XmlArrayItemAttribute("Member")]
+        public List<string> Team { get; set; }
         
         public string Url { get; set; }
-        public IEnumerable<string> Contents { get; set; }
-        public IEnumerable<string> Images { get; set; }
+
+        [XmlArrayItemAttribute("Item")]
+        public List<string> Contents { get; set; }
+        
+        [XmlArrayItemAttribute("Url")]
+        public List<string> Images { get; set; }
         public string CopyrightAndAttribution { get; set; }
 
         public string Code { get { return HttpUtility.HtmlEncode(Title.Replace("'", "").Replace(" ", "_")); } }
@@ -33,7 +43,50 @@ namespace gamejamtarts.Models
             }
         }
 
-        public static IEnumerable<Game> SampleGames()
+        private static List<Game> games;
+        public static List<Game> Games() 
+        {
+            if (games == null)
+            {
+                var url_base = @"http://www.digitalarts.wits.ac.za/jam/";
+                games = new List<Game>();
+                var iser = new XmlSerializer(typeof (Game));
+
+                WebClient wc = new WebClient();
+                var manifest = wc.DownloadString(url_base + "games_manifest.txt");
+                var lines = manifest.Split(new[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var line in lines)
+                {
+                    try
+                    {
+                        var game_xml = url_base + line;
+
+                        var reader = new XmlTextReader(game_xml);
+                        var o = iser.Deserialize(reader);
+
+                        games.Add((Game) o);
+                    }
+                    catch (Exception)
+                    {
+                        //swallow exception and
+                        continue;
+                    }
+
+
+
+                }
+            }
+
+            return games;
+        }
+
+        public static void ResetGames()
+        {
+            games = null;
+        }
+
+        public static List<Game> SampleGames()
         {
             // Pac Man
             var one = new Game();
