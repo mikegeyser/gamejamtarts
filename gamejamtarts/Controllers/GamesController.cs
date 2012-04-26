@@ -14,7 +14,7 @@ namespace gamejamtarts.Controllers
     {
         public ActionResult Index()
         {
-            return View(Game.SampleGames());
+            return View(Game.Games());
         }
 
         public ActionResult Details(string code)
