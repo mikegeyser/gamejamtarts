@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title>Finding Emo</Title>
+  <Description>Finding Emo is a classic of the Emo Figthing Genre: Some say even the best.This was made in our proprietary Emo Engine.
+Our team's vision was to create the most realistic emo fighting game to date. Cut yourself on razors to die the quickest and prove yourself to be the best emo in the land!
+We hope you enjoy playing it as much as we enjoyed making it!</Description>
+  <WordTheme>Cookies?!</WordTheme>
+  <ArtTheme>Woltheresque</ArtTheme>
+  <Team>
+    <Member>Art, Animation and Design: Luc Wolthers</Member>
+    <Member>Score, Design and Creative Directive: Reg Krommenhoek</Member>
+    <Member>Coding and Design: Dirk Krommenhoek</Member>
+    <Member>Coding and Design: Ben Myres</Member>
+  </Team>
+  <Url>http://www.digitalarts.wits.ac.za/jam/FindingEmo/Finding%20Emo.exe</Url>
+  <Contents>
+    <Item>Game</Item>
+    <Item>Description</Item>
+  </Contents>
+  <Images>
+    <Url>http://www.digitalarts.wits.ac.za/jam/FindingEmo/Death.jpg</Url>
+    <Url>http://www.digitalarts.wits.ac.za/jam/FindingEmo/GamePlay.jpg</Url>
+    <Url>http://www.digitalarts.wits.ac.za/jam/FindingEmo/Menu.jpg</Url>
+    <Url>http://www.digitalarts.wits.ac.za/jam/FindingEmo/Outro.jpg</Url>
+  </Images>
+  <CopyrightAndAttribution>All rights of this work belong to Biotology Games. We will sue you.</CopyrightAndAttribution>
+</Game>

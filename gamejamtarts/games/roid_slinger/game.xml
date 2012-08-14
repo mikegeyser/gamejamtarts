@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title>Roid Slinger</Title>
+  <Description>You are the sole survivor of a devastating attack on earth!  These bastard aliens have killed your family, your friends and your goldfish, Frank!  There is no hope for survival, but you can take down as many of them as you can... it's time for revenge!  Use your ship's gravity to pull the asteroids towards you, and use them to balst the alien scum! Arrow-keys to move, space to shoot.</Description>
+  <WordTheme>Gravity</WordTheme>
+  <ArtTheme></ArtTheme>
+  <Team>
+    <Member>Bradley Marques</Member>
+    <Member>Michael de Jager</Member>
+    <Member>Megan von Poser</Member>
+  </Team>
+  <Url>http://www.digitalarts.wits.ac.za/jam/roid_slinger/RoidSlinger.zip</Url>
+  <Contents>
+    <Item>Game files</Item>
+  </Contents>
+  <Images>
+    <Url>http://www.digitalarts.wits.ac.za/jam/roid_slinger/roidSlinger.jpg</Url>
+  </Images>
+  <CopyrightAndAttribution>Everything was our original work</CopyrightAndAttribution>
+</Game>

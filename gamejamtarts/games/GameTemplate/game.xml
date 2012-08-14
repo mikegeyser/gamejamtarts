@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title></Title>
+  <Description></Description>
+  <WordTheme></WordTheme>
+  <ArtTheme></ArtTheme>
+  <Team>
+    <Member></Member>
+    <Member></Member>
+    <Member></Member>
+    <Member></Member>
+  </Team>
+  <Url>http://www.digitalarts.wits.ac.za/jam/</Url>
+  <Contents>
+    <Item>Game files</Item>
+  </Contents>
+  <Images>
+    <Url>http://www.digitalarts.wits.ac.za/jam/</Url>
+  </Images>
+  <CopyrightAndAttribution></CopyrightAndAttribution>
+</Game>

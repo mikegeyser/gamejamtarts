@@ -1,0 +1,6 @@
+Reverb is the first iteration of a game that was produced for the SA Game Developer Community.
+
+Made using the proprietary Dubstep engine (Gamemaker).The team that produced it has been making games for under a month
+so keep this in mind!
+
+We hope you enjoy it and check back soon for the final version!

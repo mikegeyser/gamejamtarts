@@ -5,12 +5,18 @@ using System.Net;
 using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver.Builders;
 
 namespace gamejamtarts.Models
 {
-    [Serializable]
+    [Serializable, BsonDiscriminator("game")]
     public class Game
     {
+        [BsonId] 
+        public ObjectId ID { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public string WordTheme { get; set; }
@@ -48,7 +54,8 @@ namespace gamejamtarts.Models
         {
             if (games == null)
             {
-                var url_base = @"http://www.digitalarts.wits.ac.za/jam/";
+                
+                var url_base = @"http://localhost/games/";
                 games = new List<Game>();
                 var iser = new XmlSerializer(typeof (Game));
 
@@ -79,6 +86,16 @@ namespace gamejamtarts.Models
             }
 
             return games;
+        }
+
+        public static void InitialiseGames()
+        {
+            var blah = Db.Games().FindOne(Query.EQ("_id", new BsonObjectId("4fabaa7f844e980f04690430")));
+
+            var g = Db.Games().FindAll().ToList();
+
+            Db.Games().Drop();
+            Db.Games().InsertBatch(Games());
         }
 
         public static void ResetGames()

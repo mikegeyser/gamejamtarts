@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Title>Reverb.v1</Title>
+  <Description>Reverb is the first iteration of a game that was produced for the SA Game Developer Community.
+
+Made using the proprietary Dubstep engine (Gamemaker).The team that produced it has been making games for under a month
+so keep this in mind!
+
+We hope you enjoy it and check back soon for the final version!</Description>
+  <WordTheme>Dubstep</WordTheme>
+  <ArtTheme>wubwubwubwubwub</ArtTheme>
+  <Team>
+    <Member>Art, Animation and Design: Luc Wolthers</Member>
+    <Member>Score, Design and Creative Directive: Reg Krommenhoek</Member>
+    <Member>Coding and Design: Dirk Krommenhoek</Member>
+    <Member>Coding and Design: Ben Myres</Member>
+  </Team>
+  <Url>http://www.digitalarts.wits.ac.za/jam/Reverb/ReverbIteration1.exe</Url>
+  <Contents>
+    <Item>Game files</Item>
+  </Contents>
+  <Images>
+    <Url>http://www.digitalarts.wits.ac.za/jam/Reverb/Reverb.jpg</Url>
+    <Url>http://www.digitalarts.wits.ac.za/jam/Reverb/Gameplay.jpg</Url>
+  </Images>
+  <CopyrightAndAttribution>All rights of this work belong to Biotology Games. We will sue you.</CopyrightAndAttribution>
+</Game>

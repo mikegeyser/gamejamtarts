@@ -30,6 +30,7 @@ namespace gamejamtarts.Controllers
         public ActionResult Reload()
         {
             Game.ResetGames();
+            Game.InitialiseGames();
             return null;
         }
 
