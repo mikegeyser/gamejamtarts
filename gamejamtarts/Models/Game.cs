@@ -5,17 +5,13 @@ using System.Net;
 using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Driver.Builders;
 
 namespace gamejamtarts.Models
 {
-    [Serializable, BsonDiscriminator("game")]
+    [Serializable]
     public class Game
     {
-        [BsonId] 
-        public ObjectId ID { get; set; }
+        public int ID { get; set; }
 
         public string Title { get; set; }
         public string Description { get; set; }
@@ -35,7 +31,7 @@ namespace gamejamtarts.Models
         public string CopyrightAndAttribution { get; set; }
 
         public string Code { get { return HttpUtility.HtmlEncode(Title.Replace("'", "").Replace(" ", "_")); } }
-        public string TitleImage { get { return Images.FirstOrDefault(); } }
+        public string TitleImage { get { return (Images ?? new List<string>()).FirstOrDefault(); } }
         public string ShortDescription
         {
             get
@@ -54,8 +50,8 @@ namespace gamejamtarts.Models
         {
             if (games == null)
             {
-                
-                var url_base = @"http://localhost/games/";
+
+                var url_base = @"http://digitalarts.wits.ac.za/jam/";
                 games = new List<Game>();
                 var iser = new XmlSerializer(typeof (Game));
 
@@ -90,12 +86,15 @@ namespace gamejamtarts.Models
 
         public static void InitialiseGames()
         {
-            var blah = Db.Games().FindOne(Query.EQ("_id", new BsonObjectId("4fabaa7f844e980f04690430")));
+            var db = new Db();
 
-            var g = Db.Games().FindAll().ToList();
+            foreach (var game in db.Games)
+                db.Games.Remove(game);
 
-            Db.Games().Drop();
-            Db.Games().InsertBatch(Games());
+            foreach (var game in Games())
+                db.Games.Add(game);
+
+            db.SaveChanges();
         }
 
         public static void ResetGames()

@@ -12,14 +12,16 @@ namespace gamejamtarts.Controllers
 {
     public class GamesController : Controller
     {
+        private Db db = new Db();
+
         public ActionResult Index()
         {
-            return View(Game.Games());
+            return View(db.Games.ToList());
         }
 
         public ActionResult Details(string code)
         {
-            var game = Game.Games().FirstOrDefault(x => x.Code == code);
+            var game = db.Games.FirstOrDefault(x => x.Code == code);
 
             if (game == null)
                 return this.RedirectToAction("Index");

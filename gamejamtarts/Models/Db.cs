@@ -1,21 +1,10 @@
-﻿using MongoDB.Driver;
+﻿using System.Data.Entity;
 
 namespace gamejamtarts.Models
 {
-    public static class Db
+    public class Db : DbContext
     {
-        private static MongoDatabase db;
-
-        static Db()
-        {
-            db = MongoServer.Create("mongodb://jammer:DogBatteryKettle@ds031947.mongolab.com:31947/gamejamtarts")
-                            .GetDatabase("gamejamtarts");
-        }
-
-        public static MongoCollection<Game> Games()
-        {
-            return db.GetCollection<Game>("games");
-        }
+        public DbSet<Game> Games { get; set; }
     }
 }
 
