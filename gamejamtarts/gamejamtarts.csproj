@@ -118,6 +118,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201208160838253_InitialCreate.cs" />
+    <Compile Include="Migrations\201208160838253_InitialCreate.Designer.cs">
+      <DependentUpon>201208160838253_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201208160915493_AddCode.cs" />
+    <Compile Include="Migrations\201208160915493_AddCode.Designer.cs">
+      <DependentUpon>201208160915493_AddCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Db.cs" />
     <Compile Include="Models\Game.cs" />
@@ -228,6 +237,14 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\gamejam.co.za.pubxml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201208160838253_InitialCreate.resx">
+      <DependentUpon>201208160838253_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201208160915493_AddCode.resx">
+      <DependentUpon>201208160915493_AddCode.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -250,7 +267,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>12047</DevelopmentServerPort>
+          <DevelopmentServerPort>13061</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:23892/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

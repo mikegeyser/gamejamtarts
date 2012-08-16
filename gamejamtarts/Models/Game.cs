@@ -11,6 +11,13 @@ namespace gamejamtarts.Models
     [Serializable]
     public class Game
     {
+        public Game()
+        {
+            Team = new List<string>();
+            Images = new List<string>();
+            Contents = new List<string>();
+        }
+
         public int ID { get; set; }
 
         public string Title { get; set; }
@@ -30,7 +37,7 @@ namespace gamejamtarts.Models
         public List<string> Images { get; set; }
         public string CopyrightAndAttribution { get; set; }
 
-        public string Code { get { return HttpUtility.HtmlEncode(Title.Replace("'", "").Replace(" ", "_")); } }
+        public string Code { get; set; }
         public string TitleImage { get { return (Images ?? new List<string>()).FirstOrDefault(); } }
         public string ShortDescription
         {
@@ -80,6 +87,9 @@ namespace gamejamtarts.Models
 
                 }
             }
+
+            foreach (var game in games)
+                game.Code = HttpUtility.HtmlEncode(game.Title.Replace("'", "").Replace(" ", "_"));
 
             return games;
         }
