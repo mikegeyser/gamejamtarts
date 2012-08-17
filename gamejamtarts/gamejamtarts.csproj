@@ -126,10 +126,17 @@
     <Compile Include="Migrations\201208160915493_AddCode.Designer.cs">
       <DependentUpon>201208160915493_AddCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201208161008315_RefactorGameStructure.cs" />
+    <Compile Include="Migrations\201208161008315_RefactorGameStructure.Designer.cs">
+      <DependentUpon>201208161008315_RefactorGameStructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Db.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\LinkType.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,9 +145,11 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\amaze_mask.png" />
     <Content Include="Content\images\art_theme.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\jozi.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -243,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201208160915493_AddCode.resx">
       <DependentUpon>201208160915493_AddCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201208161008315_RefactorGameStructure.resx">
+      <DependentUpon>201208161008315_RefactorGameStructure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

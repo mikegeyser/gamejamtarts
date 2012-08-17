@@ -1,9 +1,9 @@
+using System.Collections.Generic;
+using gamejamtarts.Models;
+
 namespace gamejamtarts.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<gamejamtarts.Models.Db>
     {
@@ -12,7 +12,7 @@ namespace gamejamtarts.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(gamejamtarts.Models.Db context)
+        protected override void Seed(Db db)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -26,6 +26,9 @@ namespace gamejamtarts.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
+            
         }
     }
 }
