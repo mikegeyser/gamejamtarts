@@ -180,6 +180,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\easeljs-0.4.2.min.js" />
     <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\jquery-1.6.2.min.js" />
@@ -245,6 +246,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\gamejam.co.za.pubxml" />
+    <Content Include="Views\Home\MainBlurb.cshtml" />
+    <Content Include="Views\Doodles\Amaze.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201208160838253_InitialCreate.resx">

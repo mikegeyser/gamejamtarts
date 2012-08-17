@@ -4,25 +4,7 @@
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-    <h1>Hey, you!</h1>
-    
-    <h2>Come make a game at: </h2>
-    <br />
-    
-    <a href="http://www.amaze-festival.de/interact-2012">
-    <img src="@Url.Content("Content/images/amaze_mask.png")"/>
-     </a>
-    
-    <p>Come experience the fun of a Game Jam. We’re even encouraging the creation of non-digital 
-        games, so those with no programming experience can still participate.</p>  
-    <p>The brief time span of 48 hours (in the model of the incredible Global Game Jam) encourages 
-        creative thinking and allows for small but innovative and experimental games. The topic is 
-        secret and related to Johannesburg. Collaboratively coding, designing, illustrating,
-        music-making, or whatever necessary, is a wonderful opportunity for participants to 
-        expand their horizons, challenge themselves, and meet new people. Start developing a 
-        playable game with strangers who share the same passion in just two days!</p>
-    <br />
-    <p><a class="btn btn-large" href="@Url.Action("About")">Where /  when / how ? &raquo;</a></p>
+    @{ Html.RenderPartial("MainBlurb");}
 </div>
 
 <!-- Example row of columns -->
