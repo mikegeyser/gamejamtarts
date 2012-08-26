@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using gamejamtarts.Models;
 
@@ -10,12 +11,12 @@ namespace gamejamtarts.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Games.ToList());
+            return View(db.AllGames.ToList());
         }
 
         public ActionResult Details(string code)
         {
-            var game = db.Games.FirstOrDefault(x => x.Code == code);
+            var game = db.AllGames.FirstOrDefault(x => x.Code == code);
 
             if (game == null)
                 return this.RedirectToAction("Index");

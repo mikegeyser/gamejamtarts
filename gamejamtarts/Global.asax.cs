@@ -22,7 +22,11 @@ namespace gamejamtarts
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                "Game", // Route name
+                "Games/{code}", // URL with parameters
+                new { controller = "Games", action = "Details"} // Parameter defaults
+            );
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

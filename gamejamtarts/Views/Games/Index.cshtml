@@ -16,7 +16,7 @@
      <div class="game-short-description">
         <div class="image"><img src="@game.TitleImage" alt="@game.Title" /></div>         
         <div class="title"><a href="@gameUrl">@game.Title</a></div>
-        <p>@game.ShortDescription</p>        
+        <p>@MvcHtmlString.Create(game.ShortDescription)</p>        
          <a href="@disqusUrl" data-disqus-identifier="@game.Code">Comments</a>
      </div>
     <br clear="all"/>

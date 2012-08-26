@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using gamejamtarts.Models;
 
@@ -10,7 +11,7 @@ namespace gamejamtarts.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Games.Take(2).ToList());
+            return View(db.AllGames.Where(x => x.Code == "ReConstitution_Hill" || x.Code == "Finding_Emo").Take(2).ToList());
         }
 
         public ActionResult About()

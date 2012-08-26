@@ -14,8 +14,8 @@
     {
         <div class="span4">
             <h2>@game.Title</h2>
-            <p>@game.ShortDescription</p>
-            <p><a class="btn" href="@Url.Action("Details", "Games", new {code = game.Code})">View details &raquo;</a></p>
+            <p>@MvcHtmlString.Create(game.ShortDescription)</p>
+            <p><a class="btn" href="@Url.RouteUrl("Game", new {code = game.Code})">View details &raquo;</a></p>
         </div>
     }
 </div>

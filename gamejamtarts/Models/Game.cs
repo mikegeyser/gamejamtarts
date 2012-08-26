@@ -26,15 +26,15 @@ namespace gamejamtarts.Models
         public string ArtTheme { get; set; }
 
         [XmlArrayItemAttribute("Member")]
-        public List<Person> Team { get; set; }
+        public ICollection<Person> Team { get; set; }
         
         public string Url { get; set; }
 
         [XmlArrayItemAttribute("Item")]
-        public List<GameFile> Files { get; set; }
+        public ICollection<GameFile> Files { get; set; }
         
         [XmlArrayItemAttribute("Url")]
-        public List<Image> Images { get; set; }
+        public ICollection<Image> Images { get; set; }
         public string CopyrightAndAttribution { get; set; }
 
         public string Code { get; set; }

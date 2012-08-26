@@ -1,0 +1,70 @@
+﻿   
+<canvas id="canvas" width="820" height="400" style="border-bottom: 2px solid #51C1CC;">
+    
+</canvas>
+
+<script type="text/javascript" src='@Url.Content("Scripts/easeljs-0.4.2.min.js")'></script>
+<script type="text/javascript" src='@Url.Content("Scripts/Doodles/Amaze/Scene.js")'></script>
+<script type="text/javascript" src='@Url.Content("Scripts/Doodles/Amaze/Block.js")'></script>
+<script type="text/javascript" src='@Url.Content("Scripts/Doodles/Amaze/Box.js")'></script>
+<script type="text/javascript" src='@Url.Content("Scripts/Doodles/Amaze/Pulse.js")'></script>
+<script type="text/javascript" src='@Url.Content("Scripts/Doodles/Amaze/Player.js")'></script>
+
+<script type="text/javascript">
+    var amaze_image_url = '@Url.Content("Content/Images/amaze_mask.png")';
+    var player_image_url = '@Url.Content("Content/Images/player.png")';
+    
+    var canvas;
+    var stage;
+    var scene;
+    var InputDirection = 0; // -1 Left / 0 None / 1 Right
+    var InputJump = false;
+    
+    $(document).ready(function () {
+        canvas = document.getElementById("canvas");
+        stage = new Stage(canvas);
+
+        scene = new Scene(stage, canvas.width, canvas.height);
+        
+
+        Ticker.addListener(tick);
+        // Targeting 60 FPS
+        Ticker.useRAF = true;
+        Ticker.setFPS(35);
+    });
+
+    $(document).keypress(function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 65 || code == 97) //a -- left
+        {
+            InputDirection = -1;
+        } else if (code == 68 || code == 100) //d -- right
+        {
+            InputDirection = 1;
+        }
+        
+        if (code == 87 || code == 119) //w -- jump
+        {
+            InputJump = true;
+        } else {
+            InputJump = false;
+        }
+    });
+
+    $(document).keyup(function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 65 || code == 97 || code == 68 || code == 100) //a -- left, or d -- right
+        {
+            InputDirection = 0;
+        }
+        
+        if (code == 87 || code == 119) //w -- jump
+        {
+            InputJump = false;
+        }
+    });
+    
+    function tick() {
+        scene.draw();
+    }
+</script>

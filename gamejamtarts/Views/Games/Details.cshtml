@@ -12,7 +12,7 @@
 </style>
 <div class="row">
     <div class="span8">
-        <p>@Model.Description</p>
+        <p>@MvcHtmlString.Create(Model.Description)</p>
         <p class="attribution">@Model.CopyrightAndAttribution</p>
         <div class="images">
             @foreach (var image in Model.Images)

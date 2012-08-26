@@ -45,6 +45,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -141,6 +142,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Db.mdf" />
+    <Content Include="App_Data\Db_log.ldf">
+      <DependentUpon>Db.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -150,6 +155,11 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\jozi.png" />
+    <Content Include="Content\images\Player.png" />
+    <Content Include="Content\images\ReConstitutionHill\Fighting_1.PNG" />
+    <Content Include="Content\images\ReConstitutionHill\Intro.PNG" />
+    <Content Include="Content\images\ReConstitutionHill\Moving_1.PNG" />
+    <Content Include="Content\images\ReConstitutionHill\Upgrade.PNG" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -190,6 +200,11 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\Doodles\Amaze\Block.js" />
+    <Content Include="Scripts\Doodles\Amaze\Box.js" />
+    <Content Include="Scripts\Doodles\Amaze\Player.js" />
+    <Content Include="Scripts\Doodles\Amaze\Pulse.js" />
+    <Content Include="Scripts\Doodles\Amaze\Scene.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -220,9 +235,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -247,7 +260,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\gamejam.co.za.pubxml" />
     <Content Include="Views\Home\MainBlurb.cshtml" />
-    <Content Include="Views\Doodles\Amaze.cshtml" />
+    <Content Include="Views\Doodles\Amaze\Amaze.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201208160838253_InitialCreate.resx">
@@ -282,7 +295,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13061</DevelopmentServerPort>
+          <DevelopmentServerPort>44195</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:23892/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
