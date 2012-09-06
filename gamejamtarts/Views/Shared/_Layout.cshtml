@@ -22,7 +22,7 @@
         padding-bottom: 40px;
     }
 
-    .brand, h1, h2
+    .brand, h1, h2, h3
     {
         font-family: 'Press Start 2P', cursive;
         color: #51C1CC;
@@ -73,7 +73,7 @@
             <span class="icon-bar"></span>
             </a>
             <a class="brand" href="@Url.Action("Index", "Home")">
-                wits game jam
+                gamejam.co.za
             </a>
             <div class="nav-collapse">
                 @{
@@ -94,7 +94,7 @@
 
                 <ul class="nav">
                     @renderLink("About", "About", "Home")
-                    @renderLink("Theme", "Theme", "Home")
+                    @renderLink("Events", "Theme", "Home")
                     @renderLink("Games", "Index", "Games")
                 </ul>
             </div><!--/.nav-collapse -->
@@ -107,11 +107,19 @@
 
       <div class="container">
            @RenderBody()
-
+          
+          <br />
+          <br />
+          <br />
+          <br />
           <hr>
-
           <footer>
-              <p>&copy; nothing</p>
+              <div class="row">
+                  <br />
+                  <span class="span4"><a href="http://www.wits.ac.za/academic/humanities/wsoa/digitalart/8826/about_digital_arts.html"><img style="padding-left: 30px;" src='@Url.Content("~/Content/images/Digital_Arts_logo_on_black.png")'/></a></span>
+                  <span class="span4"><a href="http://www.wits.ac.za/"><img style="padding-left: 70px;" src='@Url.Content("~/Content/images/Wits_White_Vector_Logo_Ver_2.png")'/></a></span>
+                  <span class="span4"><a href="http://makegamessa.com/"><img style="padding-left: 70px;" src='@Url.Content("~/Content/images/MakeGamesSA_logo_on_black.png")'/></a></span>
+              </div>
           </footer>
 
       </div> <!-- /container -->

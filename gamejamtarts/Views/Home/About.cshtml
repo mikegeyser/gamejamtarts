@@ -6,13 +6,66 @@
     .question { font-weight: bold; }
 </style>
 <div class="row">
-    <div class="span6">
-        <h2>When?</h2>
-        <ul>
-            <li>From: Fri, 24 August 2012 - 17:00</li>
-            <li>To: Sun, 26 August 2012 - 17:00</li>
-        </ul>
+    <div class ="span12">
+        <h1>Welcome to gamejam.co.za!</h1>
         <br />
+        <p>
+            Games are being made all over South Africa right now, loads of them, and this is a place to bring
+            them together. Here we want to preserve, show off, and mostly, share the many games we make as
+            a community that may otherwise not see the light of day. The games here are sketches, not Mona-
+            Lisas. All of the games on the site were created during community events, be they structured jams,
+            or monthly challenges and competitions.
+        </p>
+        <p> 
+            We invite you to play the games that are up here, and to join us in a discussion of them. It is only
+            through feedback from the community that we will grow.
+        </p>
+        <br />
+    </div>
+    <div class="span6">
+        <h2>Who are we?</h2>
+        <p>
+            This is a site for the South African game making community, whoever you are, and wherever in SA
+            you are.
+        </p>
+        <p> 
+            It is run as a collaboration between Wits University’s Digital Arts division, and the MakeGamesSA
+            organisation.
+        </p>
+        
+    </div>
+    <div class="span6">
+        <h2>How to participate?</h2>
+        <p>
+            New events are happening continually. Sign up for the next game jam, come through to the monthly
+            MakeGamesSA meeting in Johannesburg or Cape Town, or just follow us on twitter or facebook
+        </p>
+        <p>
+            Everyone is welcome, and everyone is invited to get creative. For your games to be loaded to the
+            site they need to be in response to a community event, challenge or competition.
+        </p>
+        <p>
+            To join the conversation, find us at:
+        </p>
+        <ul>
+            <li>
+                <a href="http://makegamessa.com">MakeGamesSA.com</a>
+            </li>
+            <li>
+                <a href="http://www.wits.ac.za/wsoa">Wits Digital Arts</a>
+            </li>
+        </ul>
+
+        <p>
+            Or you could contact Hanli Geyser for more information.
+        </p>
+        <ul>
+            <li>hanli DOT geyser AT wits DOT ac DOT za</li>
+            <li>+27 11 717 4687</li>
+        </ul>
+
+
+        @*<br />
         <h2>Where?</h2>
         <p>
             Ground Floor, Digital Convent <br />
@@ -22,27 +75,6 @@
         </p>
         <br />
         @{ Html.RenderPartial("Map"); }
-    </div>
-    <div class="span6">
-        <h2>Questions?</h2>
-        <ul>
-            @foreach (var question in Model)
-            {
-                <li>
-                    <div class="question">@question.Text</div>
-                    <div>@question.Answer</div><br />
-                </li>
-            } 
-            
-        </ul>
-        <h2>Damn, I missed it..</h2>
-        <p>Don't worry, we intend on having more. We will notify everyone on follow up events using as many channels as can be mustered</p>
-        <p>Here's some places to keep and eye on:</p>
-        <ul>
-            <li><a href="http://groups.google.com/group/sagamedevelopercommunity">SA Game Dev Community Google Group</a></li>
-            <li><a href="http://makegamessa.com/">Make Games SA</a></li>
-        </ul>
-        <br />
-    </div>
+    </div>*@
 </div>
 

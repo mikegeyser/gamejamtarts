@@ -160,14 +160,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\amaze_mask.png" />
     <Content Include="Content\images\art_theme.png" />
+    <Content Include="Content\images\Digital_Arts_logo_on_black.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\jozi.png" />
+    <Content Include="Content\images\MakeGamesSA_logo.png" />
     <Content Include="Content\images\Player.png" />
     <Content Include="Content\images\ReConstitutionHill\Fighting_1.PNG" />
     <Content Include="Content\images\ReConstitutionHill\Intro.PNG" />
     <Content Include="Content\images\ReConstitutionHill\Moving_1.PNG" />
     <Content Include="Content\images\ReConstitutionHill\Upgrade.PNG" />
+    <Content Include="Content\images\Wits_White_Vector_Logo_Ver_2.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -266,6 +269,7 @@
     <Content Include="Views\Home\Theme.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\Jeppe_Street_Chop_Shoppers_Manifesto.pdf" />
     <None Include="Properties\PublishProfiles\gamejam.co.za.pubxml" />
     <Content Include="Views\Home\MainBlurb.cshtml" />
     <Content Include="Views\Doodles\Amaze\Amaze.cshtml" />

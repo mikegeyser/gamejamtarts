@@ -2,6 +2,13 @@
            
 @{ ViewBag.Title = "Home Page"; }
 
+<style>
+    .news-unit{
+        height: 360px;
+        overflow: hidden;
+    }    
+</style>
+
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
     @{ Html.RenderPartial("MainBlurb");}
@@ -12,7 +19,7 @@
     @{ Html.RenderPartial("ThemeBlurb"); }
     @foreach (var game in Model)
     {
-        <div class="span4">
+        <div class="span4 news-unit">
             <h2>@game.Title</h2>
             <p>@MvcHtmlString.Create(game.ShortDescription)</p>
             <p><a class="btn" href="@Url.RouteUrl("Game", new {code = game.Code})">View details &raquo;</a></p>
