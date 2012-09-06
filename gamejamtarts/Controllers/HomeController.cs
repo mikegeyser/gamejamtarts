@@ -11,7 +11,7 @@ namespace gamejamtarts.Controllers
 
         public ActionResult Index()
         {
-            return View(db.AllGames.Where(x => x.Code == "ReConstitution_Hill" || x.Code == "Finding_Emo").Take(2).ToList());
+            return View(db.AllGames.Where(x => x.Code == "ReConstitution_Hill" || x.Code == "Reverb.v1").Take(2).ToList());
         }
 
         public ActionResult About()

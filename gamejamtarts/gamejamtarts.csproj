@@ -131,6 +131,14 @@
     <Compile Include="Migrations\201208161008315_RefactorGameStructure.Designer.cs">
       <DependentUpon>201208161008315_RefactorGameStructure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201208270425062_AddCreationDateAndEventToGame.cs" />
+    <Compile Include="Migrations\201208270425062_AddCreationDateAndEventToGame.Designer.cs">
+      <DependentUpon>201208270425062_AddCreationDateAndEventToGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201208270433390_FixingCreationDateToBeADate.cs" />
+    <Compile Include="Migrations\201208270433390_FixingCreationDateToBeADate.Designer.cs">
+      <DependentUpon>201208270433390_FixingCreationDateToBeADate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Db.cs" />
@@ -271,6 +279,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201208161008315_RefactorGameStructure.resx">
       <DependentUpon>201208161008315_RefactorGameStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201208270425062_AddCreationDateAndEventToGame.resx">
+      <DependentUpon>201208270425062_AddCreationDateAndEventToGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201208270433390_FixingCreationDateToBeADate.resx">
+      <DependentUpon>201208270433390_FixingCreationDateToBeADate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

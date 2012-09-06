@@ -38,6 +38,10 @@ namespace gamejamtarts.Models
         public string CopyrightAndAttribution { get; set; }
 
         public string Code { get; set; }
+
+        public string Event { get; set; }
+        public DateTime CreationDate { get; set; }
+
         public string TitleImage { get { return (Images ?? new List<Image>()).Select(x => x.Url).FirstOrDefault(); } }
         public string ShortDescription
         {

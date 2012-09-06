@@ -11,7 +11,7 @@ namespace gamejamtarts.Controllers
 
         public ActionResult Index()
         {
-            return View(db.AllGames.ToList());
+            return View(db.AllGames.OrderByDescending(x => x.CreationDate).ToList());
         }
 
         public ActionResult Details(string code)

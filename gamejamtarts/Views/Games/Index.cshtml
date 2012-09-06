@@ -8,19 +8,26 @@
 <h2>The Results!</h2>
 <br />
 
-@foreach (var game in Model)
- {
-     var gameUrl = Url.Action("Details", new { code = game.Code });
-     var disqusUrl = gameUrl + "#disqus_thread";   
+@foreach (var jam in Model.GroupBy(x => x.Event))
+{
+    <h2>@jam.Key</h2>
+    <br />
+    
+    foreach (var game in jam)
+    {
+        var gameUrl = Url.Action("Details", new { code = game.Code });
+        var disqusUrl = gameUrl + "#disqus_thread";   
      
-     <div class="game-short-description">
-        <div class="image"><img src="@game.TitleImage" alt="@game.Title" /></div>         
-        <div class="title"><a href="@gameUrl">@game.Title</a></div>
-        <p>@MvcHtmlString.Create(game.ShortDescription)</p>        
-         <a href="@disqusUrl" data-disqus-identifier="@game.Code">Comments</a>
-     </div>
-    <br clear="all"/>
- }
+         <div class="game-short-description">
+            <div class="image"><img src="@game.TitleImage" alt="@game.Title" /></div>         
+            <div class="title"><a href="@gameUrl">@game.Title</a></div>
+            <p>@MvcHtmlString.Create(game.ShortDescription)</p>        
+             <a href="@disqusUrl" data-disqus-identifier="@game.Code">Comments</a>
+         </div>
+        <br clear="all"/>
+    }
+
+}
 
 
 <script type="text/javascript">
